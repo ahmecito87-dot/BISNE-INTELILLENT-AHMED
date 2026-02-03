@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ventas BI Educativo</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { margin-top: 40px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
+    th { background-color: #f0f0f0; }
+    .kpi { margin: 10px 0; font-weight: bold; }
+    canvas { max-width: 600px; margin-top: 20px; }
+    button { margin-top: 20px; padding: 8px 12px; }
+  </style>
+</head>
+<body>
+
+  <h1>Web BI – Limpieza y Análisis de Ventas</h1>
+
+  <div id="infoFilas"></div>
+
+  <h2>KPIs</h2>
+  <div id="kpis"></div>
+
+  <h2>Gráficos</h2>
+  <canvas id="chartTopProductos"></canvas>
+  <canvas id="chartFranja"></canvas>
+  <canvas id="chartFamilia"></canvas>
+
+  <h2>Primeras 10 filas RAW</h2>
+  <div id="tablaRaw"></div>
+
+  <h2>Primeras 10 filas LIMPIAS</h2>
+  <div id="tablaClean"></div>
+
+  <button id="downloadBtn">Descargar CSV limpio</button>
+
+  <script src="app.js"></script>
+</body>
+</html>
