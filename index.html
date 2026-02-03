@@ -2,41 +2,159 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Ventas BI Educativo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard BI – Ventas</title>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    h2 { margin-top: 40px; }
-    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
-    th, td { border: 1px solid #ccc; padding: 6px; text-align: left; }
-    th { background-color: #f0f0f0; }
-    .kpi { margin: 10px 0; font-weight: bold; }
-    canvas { max-width: 600px; margin-top: 20px; }
-    button { margin-top: 20px; padding: 8px 12px; }
+    /* ===== FONDO NÁCAR MORADO-AZUL ===== */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg,
+        #5f2c82,
+        #49a09d,
+        #6a11cb
+      );
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ===== CONTENEDOR PRINCIPAL ===== */
+    .dashboard {
+      width: 100%;
+      max-width: 1100px;
+      padding: 30px;
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+      color: white;
+    }
+
+    /* ===== TARJETAS ===== */
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 30px auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    /* ===== KPIs ===== */
+    .kpi {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    /* ===== GRÁFICOS ===== */
+    .chart-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    /* ===== TABLAS ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    /* ===== BOTÓN ===== */
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 18px;
+      font-size: 15px;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    #infoFilas {
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      margin-top: 10px;
+    }
   </style>
 </head>
+
 <body>
 
-  <h1>Web BI – Limpieza y Análisis de Ventas</h1>
+  <div class="dashboard">
 
-  <div id="infoFilas"></div>
+    <h1>Dashboard BI – Ventas</h1>
+    <div id="infoFilas"></div>
 
-  <h2>KPIs</h2>
-  <div id="kpis"></div>
+    <div class="card">
+      <h2>KPIs</h2>
+      <div id="kpis"></div>
+    </div>
 
-  <h2>Gráficos</h2>
-  <canvas id="chartTopProductos"></canvas>
-  <canvas id="chartFranja"></canvas>
-  <canvas id="chartFamilia"></canvas>
+    <div class="card">
+      <h2>Top 5 Productos por Importe</h2>
+      <div class="chart-container">
+        <canvas id="chartTopProductos"></canvas>
+      </div>
+    </div>
 
-  <h2>Primeras 10 filas RAW</h2>
-  <div id="tablaRaw"></div>
+    <div class="card">
+      <h2>Ventas por Franja</h2>
+      <div class="chart-container">
+        <canvas id="chartFranja"></canvas>
+      </div>
+    </div>
 
-  <h2>Primeras 10 filas LIMPIAS</h2>
-  <div id="tablaClean"></div>
+    <div class="card">
+      <h2>Ventas por Familia</h2>
+      <div class="chart-container">
+        <canvas id="chartFamilia"></canvas>
+      </div>
+    </div>
 
-  <button id="downloadBtn">Descargar CSV limpio</button>
+    <div class="card">
+      <h2>Primeras 10 filas RAW</h2>
+      <div id="tablaRaw"></div>
+    </div>
+
+    <div class="card">
+      <h2>Primeras 10 filas LIMPIAS</h2>
+      <div id="tablaClean"></div>
+    </div>
+
+    <button id="downloadBtn">📥 Descargar CSV limpio</button>
+
+  </div>
 
   <script src="app.js"></script>
 </body>
 </html>
+
